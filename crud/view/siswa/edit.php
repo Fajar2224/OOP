@@ -7,10 +7,15 @@
     <link rel="stylesheet" href="../../dist/css/bootstrap.min.css"> 
 </head>
 <body>
+    <?php
+    include_once "../../class/siswa.php";
+    $Siswa=new Siswa();
+    $data=$Siswa->cari_data_siswa_by_id($_GET['id']);
+    ?>
     <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Tambah Data Siswa</h1>
+            <h1> Formulir Edit Data Siswa</h1>
         </div>
     </div>
     </div>
@@ -18,11 +23,12 @@
     <div class="row">
         <div class="col-12">
           <form action="../../controller/SiswaController.php?aksi=update" method='POST'>
+            <input type="hidden" name='id' id='id' value='<?php echo $data['id'];?>'>
             <div class="mb-3">
                 <label for='nama'
                 class='form-label'>Nama</label>
                 <input type="text" class ="form-control"
-                id="nama" name='nama' values="$a_nama">
+                id="nama" name='nama' value="<?=$data['nama']?>"> 
             </div>
         </div>
     </div>
@@ -35,7 +41,7 @@
                 <label for='nisn'
                 class='form-label'>NISN</label>
                 <input type="text" class ="form-control"
-                id="nisn" name='nisn'>
+                id="nisn" name='nisn'value="<?=$data['nisn']?>">
             </div>
         </div>
     </div>
@@ -48,13 +54,14 @@
                 <label for='kelas'
                 class='form-label'>Kelas</label>
                 <input type="text" class ="form-control"
-                id="kelas" name='kelas'>
+                id="kelas" name='kelas'value="<?=$data['kelas']?>">
             </div>
             <button type="submit" class='btn btn-primary'>Simpan</button>
 </form>
         </div>
     </div>
     </div>
+    
 
     <script src="../../dist/js/bootstrap.bundle.min.js"></script>
 

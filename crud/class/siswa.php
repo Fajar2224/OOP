@@ -15,6 +15,7 @@ class Siswa extends Koneksi
   {
     $query="SELECT * FROM siswa";
     $hasil=$this->p_koneksi->query($query);
+    $data=array();
     while ($baris=$hasil->fetch_assoc())
     {
         $data[]=$baris;
