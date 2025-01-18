@@ -4,11 +4,12 @@ include_once "koneksi.php";
 
 class Siswa extends Koneksi
 {
-    public function tambah_data_siswa($a_nama,$a_nisn,$a_kelas)
+    public function tambah_data_siswa($a_nama,$a_nisn,$a_kelas,$a_unik_id)
     {
         $query="INSERT INTO siswa 
         SET nama='$a_nama',nisn='$a_nisn',
-        kelas='$a_kelas'";
+        kelas='$a_kelas',
+        unik_id='$a_unik_id'";
         $this->p_koneksi->query($query);
 }
   public function tampil_data_siswa_all()
@@ -30,6 +31,12 @@ class Siswa extends Koneksi
   public function cari_data_siswa_by_id($a_id)
   {
     $query="SELECT * FROM siswa WHERE id='$a_id'";
+    $data=$this->p_koneksi->query($query);
+    return $data->fetch_assoc(); 
+  }
+  public function cari_data_siswa_by_unik_id($a_unik_id)
+  {
+    $query="SELECT * FROM siswa WHERE unik_id='$a_unik_id'";
     $data=$this->p_koneksi->query($query);
     return $data->fetch_assoc(); 
   }

@@ -24,6 +24,7 @@
         <div class="col-12">
           <form action="../../controller/SiswaController.php?aksi=update" method='POST'>
             <input type="hidden" name='id' id='id' value='<?php echo $data['id'];?>'>
+            
             <div class="mb-3">
                 <label for='nama'
                 class='form-label'>Nama</label>
